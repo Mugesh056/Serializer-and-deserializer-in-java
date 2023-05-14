@@ -1,8 +1,9 @@
-package serializationWithMemoryBuffer;
+package com.backstrem_Chp01.serializationWithMemoryBuffer;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.matchers.Equals;
+import serializationWithMemoryBuffer.MarketDataWithMemoryBuffer;
 
 import java.io.*;
 
@@ -24,7 +25,7 @@ public class MarketDataWithMemoryBufferTest {
         marketData.setIsLevelOne(true);
 
         final var bout=new ByteArrayOutputStream();
-
+        //Before Serialization of Files
         try (final var oos = new ObjectOutputStream(
                    new BufferedOutputStream(bout))) {
 
@@ -40,7 +41,7 @@ public class MarketDataWithMemoryBufferTest {
                         new ByteArrayInputStream(bout.toByteArray())))) {
 
             final var fromSerialize = (MarketDataWithMemoryBuffer) ois.readObject();
-            System.out.println("After serialization....");
+            System.out.println("After serialization");
             System.out.println(fromSerialize);
 
 
